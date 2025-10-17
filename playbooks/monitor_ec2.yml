@@ -1,0 +1,35 @@
+- name: Collect EC2 system metrics
+  hosts: all
+  become: yes
+  tasks:
+    - name: Gather disk usage
+      command: df -h
+      register: disk_usage
+
+    - name: Gather memory usage
+      command: free -m
+      register: memory_usage
+
+    - name: Gather CPU load
+      command: uptime
+      register: cpu_load
+
+    - name: Gather running processes
+      command: ps aux
+      register: processes
+
+    - name: Write metrics to file
+      copy:
+        content: |
+          Disk Usage:
+          {{ disk_usage.stdout }}
+
+          Memory Usage:
+          {{ memory_usage.stdout }}
+
+          CPU Load:
+          {{ cpu_load.stdout }}
+
+          Processes:
+          {{ processes.stdout }}
+        dest: /home/ubuntu/ec2_metrics.txt
