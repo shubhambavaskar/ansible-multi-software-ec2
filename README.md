@@ -15,7 +15,6 @@ Automate the installation, configuration, updates, and monitoring of multiple so
 * Git – source code management
 * Terraform – for infrastructure provisioning
 * Nginx – web server configuration
-* Python – scripting and automation
 
 ---
 
@@ -41,9 +40,9 @@ Automate the installation, configuration, updates, and monitoring of multiple so
 * Regular updates of installed software using Ansible playbooks
 * Reduced manual intervention and ensured all servers remain up-to-date
 
-**4️⃣ EC2 Monitoring**
+**4️⃣ EC2 Monitoring (via Ansible)**
 
-* Collect system metrics from all EC2 instances:
+* Collect system metrics from all EC2 instances using Ansible playbooks:
 
   * Disk usage
   * CPU usage
@@ -53,7 +52,7 @@ Automate the installation, configuration, updates, and monitoring of multiple so
 
 **5️⃣ Integration with GitHub**
 
-* Store Ansible playbooks and scripts in GitHub repository
+* Store Ansible playbooks in GitHub repository
 * Enable version control and collaboration
 
 ---
@@ -67,10 +66,8 @@ ansible-multi-software-ec2/
 ├── playbooks/
 │   ├── install_software.yml  # Installs Docker, Jenkins, Git, Nginx
 │   ├── update_software.yml   # Updates all software packages
-│   └── monitor_ec2.yml       # Collects system metrics from EC2 instances
+│   └── monitor_ec2.yml       # Collects system metrics from EC2 instances using Ansible
 ├── README.md               # Project documentation
-└── scripts/
-    └── gather_metrics.py   # Python script to collect system stats
 ```
 
 ---
@@ -78,7 +75,7 @@ ansible-multi-software-ec2/
 ✅ **Outcome**
 
 * Streamlined software management across 150+ EC2 instances
-* Centralized monitoring of system metrics
+* Centralized monitoring of system metrics using Ansible
 * Reduced manual effort and eliminated configuration inconsistencies
 * Improved deployment speed and operational efficiency
 
