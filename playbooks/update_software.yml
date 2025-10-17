@@ -1,0 +1,8 @@
+- name: Update software on EC2 instances
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update all packages
+      apt:
+        upgrade: dist
+        update_cache: yes
